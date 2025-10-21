@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .header {
+            position: fixed;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            transition: all .3s ease;
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(231, 117, 33, 0.2);
+            background-color: rgba(0, 0, 0, 0.50);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            opacity: 0.5;
+        }
+
+        .overlay {
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 80%;
+            margin: 30px;
+
+        }
+
+        .top-div {
+            margin-left: auto;
+            margin-right: 30px;
+        }
+
+        .button,
+        .submit-button {
+            color: white;
+            font-family: cursive;
+            border: 1px solid;
+            border-radius: 10px;
+            padding: 8px;
+            font-size: 22px;
+            text-align: center;
+            background-color: rgba(231, 117, 33, 0.7);
+            transition-duration: 0.4s;
+            width: 150px;
+            box-sizing: border-box;
+        }
+
+        .submit-button {
+            width: 50px;
+            margin-left: auto;
+        }
+
+        .button:hover,
+        .submit-button:hover {
+            background-color: rgba(231, 117, 33, 0.9);
+            color: white;
+        }
+
+        section {
+            padding: 150px 0 116px;
+            position: relative;
+        }
+
+        .services {
+            max-width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .services .content-container {
+            padding: 20px 40px 0px 10px;
+            border: 1px solid rgba(231, 117, 33, 0.7);
+            border-radius: 10px;
+            width: 45%;
+            height: 45%;
+            margin-left: 3%;
+        }
+
+        p {
+            box-sizing: border-box;
+            margin-block-start: 0;
+            color: whitesmoke;
+        }
+
+        .arrow-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 1.5s infinite;
+        }
+
+        .arrow {
+            width: 30px;
+            height: 30px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            display: inline-block;
+            padding: 3px;
+            transform: rotate(-45deg);
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-15px);
+            }
+
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .image-container {
+            width: 45%;
+            margin-top: -13%;
+        }
+
+        .serv_img {
+            opacity: 100%;
+            height: auto;
+            opacity: 1.0;
+            width: 100%;
+        }
+
+        .evolute_img {
+            width: auto;
+            height: 60px;
+            margin-left: 3%;
+            opacity: 2.0;
+        }
+
+        .Join {
+            visibility: visible;
+            animation-delay: 0.2s;
+            animation-name: fadeInUp;
+            color: whitesmoke;
+        }
+
+        .Join_2 {
+            visibility: visible;
+            animation-delay: 0.4s;
+            animation-name: fadeInUp;
+        }
+
+        .contact-content-heading {
+            color: whitesmoke;
+            font-size: 25px;
+        }
+
+        .contact-form-wrapper {
+            margin-left: 3%;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .row {
+            flex-wrap: wrap;
+
+        }
+
+        input {
+            padding-top: 16px;
+            padding-right: 20px;
+            padding-bottom: 16px;
+            padding-left: 20px;
+            border: 1px solid rgb(231, 117, 33);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: black;
+            width: 60%;
+        }
+
+        .text-right-btn button {
+            width: 63%;
+        }
+
+        .contact-section {
+            margin-left: 3%;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: rgba(231, 117, 33, 0.7);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .timeline-item:hover .content {
+            background-color: rgba(231, 117, 33, 0.9);
+            box-shadow: 0 0 10px rgba(231, 117, 33, 0.7);
+        }
+
+        .timeline-item::after {
+            content: ' ';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: white;
+            border: 4px solid rgba(231, 117, 33, 0.7);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item.left {
+            left: 0;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+        }
+
+        .timeline-item.right::after {
+            left: -16px;
+        }
+
+        .timeline-item .content {
+            padding: 20px 30px;
+            background-color: rgba(231, 117, 33, 0.7);
+            position: relative;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-item.left .content {
+            margin-left: auto;
+        }
+
+        .footer {
+            background-color: rgba(0, 0, 0, 0.50);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 50px;
+            border-top: 1px solid rgba(231, 117, 33, 0.2);
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dummy Web</title>
+</head>
+
+<body>
+    <header class="header">
+        <img src="evolute_img.jpg" class="evolute_img">
+        <div class="top-div">
+            <button class="button" type="button">Launch App</button>
+        </div>
+    </header>
+
+    <img src="background__img" alt="Background Image">
+    <div class="background">
+        <div class="overlay">
+            <h2 style="padding:10px; color:whitesmoke; font-family:cursive; font-size:35px; opacity: 1.0;">
+                <span class="auto-type"></span>
+            </h2>
+        </div>
+    </div>
+    <div class="arrow-container">
+        <div class="arrow"></div>
+    </div>
+    <section id="services">
+        <div class="container">
+            <div class="service">
+                <h2 style="display: flex; color:white; font-family: cursive; font-size: 45px; margin: 10px; margin-top: 10px; margin-left:3%;">Our Service
+                </h2>
+            </div>
+        </div>
+        <div class="services">
+            <div class="content-container">
+                <p class="content_1"></p>
+                <p>
+                    Evolute is a decentralized Product that bridges the gap
+                    between manufacturers and NFT owners. NFT owners can
+                    work with manufacturers/designers to make their own
+                    product/brand.
+                </p>
+                <p>
+                    Evolute also acts as an E-commerce platform where
+                    transactions are made between NFT Owners and designers.
+                    Owners of NFT can have their NFTs on products by
+                    Designers, and it's shipped to them.
+                </p>
+
+            </div>
+            <div class="image-container">
+                <img src="serv_img" alt="Service Image" class="serv_img">
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap" class="timeline">
+        <div class="timeline-item left">
+            <div class="content">
+                <h2>Q1 2023</h2>
+                <p>Initial concept development and team formation.</p>
+            </div>
+        </div>
+        <div class="timeline-item right">
+            <div class="content">
+                <h2>Q2 2023</h2>
+                <p>Platform prototype development and early testing.</p>
+            </div>
+        </div>
+        <div class="timeline-item left">
+            <div class="content">
+                <h2>Q3 2023</h2>
+                <p>Beta launch and feedback collection from early users.</p>
+            </div>
+        </div>
+        <div class="timeline-item right">
+            <div class="content">
+                <h2>Q4 2023</h2>
+                <p>Public launch and expansion of platform features.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="contact-section">
+        <div class="contact-content">
+            <h2 class="Join" data-wow-delay=".2s" style=" font-size:30px;">Be a Testnet User</h2>
+            <p class="Join_2" data-wow-delay=".4s" style="opacity: 0.5;">
+                Be among the early users to test of our platform for bugs.
+                <br>
+                Sign up to get notified on our beta launch
+            </p>
+        </div>
+        <div class="contact-content-heading">
+            <h3>Sign Up</h3>
+        </div>
+    </div>
+
+    <div class="form-div">
+        <div class="contact-form-wrapper">
+            <form>
+                <div class="row">
+                    <div class="name-col">
+                        <input type="text" placeholder="Name" name="name">
+                    </div>
+                    <div class="email-col">
+                        <input type="email" placeholder="Email" name="email" id="email">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="wallet-address-col">
+                        <input type="text" placeholder="Wallet Address" name="wallet address" id="wallet address">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="text-right-btn">
+                        <button class="submit-button" type="submit">Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Prince Macbay. All rights reserved.</p>
+        <p>Contact us: <a href="mailto:info@evolute.com" style="color: rgba(231, 117, 33, 0.7);">princemacbay00@gmail.com</a></p>
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed(".auto-type", {
+            strings: ["Welcome to Evolute, A Peer-to-Peer Platform bridging the Gap between NFT Owners and manufacturers/Designers. Productize your NFT today!"],
+            typeSpeed: 100,
+            backSpeed: 150,
+            loop: true
+        });
+    </script>
+</body>
+
+</html>
+
