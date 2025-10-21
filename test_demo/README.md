@@ -1,0 +1,1 @@
+I designed and built a static concept website that mimics a testnet waitlist application page for an upcoming NFT marketplace. Developed using HTML, CSS, and JavaScript, the project focuses on front-end design, showcasing a clean and responsive layout that reflects the look and feel of a real NFT marketplace’s early-access platform.
