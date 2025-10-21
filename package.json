@@ -1,0 +1,16 @@
+{
+  "name": "nft-website",
+  "version": "1.0.0",
+  "description": "Evolute NFT Marketplace - A Peer-to-Peer Platform bridging the Gap between NFT Owners and manufacturers/Designers",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "build": "echo 'Static site - no build required'"
+  },
+  "keywords": ["nft", "marketplace", "blockchain", "static-site"],
+  "author": "Prince Macbay",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.0.0"
+  }
+}
